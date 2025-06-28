@@ -1,0 +1,64 @@
+<section class="wishlist py-4">
+  <div class="container">
+    <div>
+ <h2 class="text-center">WishList</h2>
+ <button (click)="clearWishlist()" class="btn bg-danger text-white ms-auto ">Clear wishlist</button>
+
+
+    </div>
+   
+    <div class="row">
+      <div>
+ 
+      </div>
+      @for (product of _wishList.products(); track product.id) {
+
+        
+        <div class="col-lg-12  my-3">
+ 
+          <div class="d-flex align-items-center justify-content-between border border-1 p-3 flex-column flex-lg-row ">
+            <div class="d-flex align-items-center flex-column flex-lg-row w-50">
+              <div class="">
+    <img [src]="product.thumbnail" class="card-img-top w-100" alt="Product image">
+              </div>
+
+            <div class="card-body text-center text-lg-start my-3 my-lg-0">
+              <h4 class="card-title fw-bold">{{ product.title }}</h4>
+               <p>{{ product.brand}}</p>
+            </div>
+            </div>
+        
+               
+               <!-- <div class="d-flex align-items-center flex-column">
+                        <div class="">
+                                  <button class="plus-btn" (click)="addCounter(product.id)">+</button>
+                        <span class=" counter-number">{{product.count}}</span>
+                        <button class="sub-btn" (click)="subCounter(product.id)">-</button>
+                        </div>
+         
+                   
+          
+                </div> -->
+
+          <div class="my-3 my-lg-0">
+            <button class="btn btn-outline-danger" (click)="removeProduct(product)">Remove</button>
+          </div>
+          <div>
+            <h3>{{product.price}}</h3>
+          </div>
+          </div>
+
+      
+        </div>
+      }@empty{
+      
+ <h2 class="text-center ">wishlist is empty</h2>
+      
+       
+      }
+
+
+    </div>
+  </div>
+</section>
+

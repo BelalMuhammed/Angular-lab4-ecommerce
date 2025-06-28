@@ -1,0 +1,33 @@
+.plus-btn{
+    border-radius: 200px 0px 0px 200px;
+-webkit-border-radius: 200px 0px 0px 200px;
+-moz-border-radius: 200px 0px 0px 200px;
+background-color: #dbd6d0;
+padding: 15px 25px;
+border: none;
+
+font-weight: bold;
+}
+
+.sub-btn{
+border-radius: 0px 200px 200px 0px;
+-webkit-border-radius: 0px 200px 200px 0px;
+-moz-border-radius: 0px 200px 200px 0px;
+background-color: #dbd6d0;
+padding: 15px 25px;
+border: none;
+
+font-weight: bold;
+}
+.counter-number{
+ padding: 1rem 2rem;  
+ background-color: #dbd6d0; 
+
+font-weight: bold;
+}
+
+.padge{
+    padding: 0.2rem 1rem;
+     background-color: #f1d2ab; 
+     border-radius: 50px;
+}

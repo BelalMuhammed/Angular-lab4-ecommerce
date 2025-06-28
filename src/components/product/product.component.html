@@ -1,0 +1,61 @@
+
+          <div class="card h-100">
+          
+         
+          
+            <a [routerLink]="'/product/'+singleProduct().id" >
+                <div class="position-relative">
+          @if(singleProduct().availabilityStatus=="In Stock"){
+ <span class="padge  position-absolute">In stock</span>
+              }
+              @if(singleProduct().availabilityStatus=="Low Stock"){
+   <span class="padge  position-absolute bg-danger" >Low Stock</span>
+              }    
+
+              <button (click)="toggleWishlist($event, singleProduct())"
+        class="border-0 bg-transparent position-absolute end-0 m-1">
+        @if(_wishList.isInWishlist(singleProduct())){
+          <i class="fa-solid fa-heart fs-3 text-danger" ></i>
+        }@else if(!_wishList.isInWishlist(singleProduct())){
+           <i class="fa-regular fa-heart fs-3 "></i>
+        }
+  <!-- <i [ngClass]="{
+        'fa-solid fa-heart': _wishList.isInWishlist(singleProduct()),
+        'fa-regular fa-heart': !_wishList.isInWishlist(singleProduct())
+      }"
+     class="fs-3"></i> -->
+</button>
+
+           <!-- <button (click)="addToWishList($event,singleProduct())" class="border-0 bg-transparent  position-absolute  end-0 m-1"><i class="fa-regular fa-heart fs-3"></i></button> -->
+             
+   <img [src]="singleProduct().thumbnail" class="card-img-top" alt="singleProduct image">
+            </div>
+                <div class="card-body ">
+                <div class="d-flex justify-content-between align-items-center">
+     <h6 class="card-title">{{ singleProduct().title }}</h6>
+              <span class="fs-4">{{ singleProduct().price }}</span>
+                </div>
+         
+              <p class="card-text text-muted">
+                 {{ singleProduct().description.slice(0, 25) }}{{ singleProduct().description.length > 25 ? '...' : '' }}
+              </p>
+
+              <div class="d-flex align-items-center">
+  <!-- Full Stars -->
+  <i *ngFor="let star of getFullStars(singleProduct().rating)" class="fas fa-star text-warning"></i>
+
+  <!-- Half Star -->
+  <i *ngIf="hasHalfStar(singleProduct().rating)" class="fas fa-star-half-alt text-warning"></i>
+
+  <!-- Empty Stars -->
+  <i *ngFor="let star of getEmptyStars(singleProduct().rating)" class="far fa-star text-warning"></i>
+
+  <!-- Optional rating number -->
+  <small class="ms-2 text-muted">({{ singleProduct().rating }})</small>
+</div>
+           
+            </div>
+            </a>
+            <div class="card-footer mt-auto">   <button class="btn btn-primary "  [ngClass]="isInCart(singleProduct()) ? 'btn-danger' : 'btn-primary'" (click)="toggleProductInCart(singleProduct())">  {{ isInCart(singleProduct()) ? 'Remove from cart' : 'Add to cart' }}</button></div>
+          </div>
+        

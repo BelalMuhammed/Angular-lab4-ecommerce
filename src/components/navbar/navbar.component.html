@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a routerLink="home" class="navbar-brand">Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+         <a class="nav-link active" aria-current="page" routerLink="home"  routerLinkActive="active" >products</a>
+        <div class="position-relative">
+          <a class="nav-link active" aria-current="page" routerLink="wishList" routerLinkActive="active">WishList </a>
+          @if(_wishlist.total()>0){
+          <i class="fa-solid fa-heart fs-5 position-absolute heart"></i>
+          <span class="position-absolute  fav-number fw-bold">{{ _wishlist.total()}}</span>
+          }
+
+        </div>
+
+       
+
+        <a class="nav-link position-relative" routerLink="cart" routerLinkActive="router-link-active" > <p class="padge position-absolute translate-middle  translate-middle px-1   text-light  bg-danger">{{_products.productsCart().length > 0 ?_products.productsCart().length:''}}</p><i class="fa-solid fa-cart-shopping"></i></a>
+       
+      </div>
+    </div>
+  </div>
+</nav>
